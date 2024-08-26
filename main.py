@@ -1,16 +1,18 @@
-# This is a sample Python script.
+#sih certificate generator
+#developed by : Aryan Karamtoth of Department of Information Technology, KITS Warangal
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+#importing modules
+import pandas as pd
+from PIL import Image, ImageDraw, ImageFont
 
+# persons= pd.read_csv('persons.csv')
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+namelist = "name"
+im=Image.open("sample.jpg")
+draw = ImageDraw.Draw(im)
+location = (100, 100)
+text_color = (0, 188, 255)
+selectFont = ImageFont.truetype("arial.ttf", size=45)
+draw.text(location, namelist, fill = text_color, font = selectFont)
+im.save("certificate.jpg")
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
