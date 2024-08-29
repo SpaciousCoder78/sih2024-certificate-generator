@@ -23,20 +23,20 @@ for index, row in persons.iterrows():
         problem_number = row["Problem Statement Number (Example: SIH1281)"]
 
         # format the text to be printed on the image
-        text1 = f"This is to certify that {name}, Roll No. {roll_number}, successfully participated in the Internal Hackathon for Smart India Hackathon 2024 at KITSW held on 31/08/2024."
-        text2 = f"Problem Statement: {problem_title} ({problem_number})"
+        text = f"This is to certify that {name}, Roll No. {roll_number}, successfully participated in the Internal Hackathon for Smart India Hackathon 2024 held on August 31, 2024 with the Problem Statement: {problem_title} ({problem_number})"
+
 
         # wrap the text into multiple lines if it's too long
         wrapper = textwrap.TextWrapper(width=80)  # adjust width as needed
-        text_lines1 = wrapper.wrap(text=text1)
-        text_lines2 = wrapper.wrap(text=text2)
+        text_lines1 = wrapper.wrap(text=text)
+
 
         # combine the two lists of lines
-        text_lines = text_lines1 + text_lines2
+        text_lines = text_lines1
 
         im = Image.open("sample.jpg")
         draw = ImageDraw.Draw(im)
-        location = (223, 533)
+        location = (223, 483)
         text_color = (0, 0, 0)
         selectFont = ImageFont.truetype("arial.ttf", size=25)
 
