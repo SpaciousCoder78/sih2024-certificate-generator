@@ -21,7 +21,7 @@ for name_column in name_columns:
     for i in namelist:
         im = Image.open("sample.jpg")
         draw = ImageDraw.Draw(im)
-        location = (240, 311)
+        location = (463, 513)
         text_color = (0, 0, 0)
         selectFont = ImageFont.truetype("arial.ttf", size=45)
         draw.text(location, i, fill = text_color, font = selectFont)
