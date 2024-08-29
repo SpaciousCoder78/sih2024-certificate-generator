@@ -2,7 +2,6 @@
 #developed by : Aryan Karamtoth of Department of Information Technology, KITS Warangal
 
 #importing modules
-# importing modules
 import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 import textwrap
@@ -24,11 +23,16 @@ for index, row in persons.iterrows():
         problem_number = row["Problem Statement Number (Example: SIH1281)"]
 
         # format the text to be printed on the image
-        text = f"This is to certify that {name},Roll No. {roll_number}, successfully participated in the Internal Hackathon for Smart India Hackathon 2024 at KITSW held on 31/08/2024. \n Problem Statement: {problem_title} ({problem_number})"
+        text1 = f"This is to certify that {name}, Roll No. {roll_number}, successfully participated in the Internal Hackathon for Smart India Hackathon 2024 at KITSW held on 31/08/2024."
+        text2 = f"Problem Statement: {problem_title} ({problem_number})"
 
         # wrap the text into multiple lines if it's too long
         wrapper = textwrap.TextWrapper(width=80)  # adjust width as needed
-        text_lines = wrapper.wrap(text=text)
+        text_lines1 = wrapper.wrap(text=text1)
+        text_lines2 = wrapper.wrap(text=text2)
+
+        # combine the two lists of lines
+        text_lines = text_lines1 + text_lines2
 
         im = Image.open("sample.jpg")
         draw = ImageDraw.Draw(im)
@@ -45,5 +49,5 @@ for index, row in persons.iterrows():
         unique_key = f"{name}_{email}_{index}"
         unique_key = unique_key.replace(" ", "_")  # replace spaces with underscores
 
-# append the counter to the file name
+        # append the counter to the file name
         im.save(f"certificates\\certificate_{unique_key}.jpg")
